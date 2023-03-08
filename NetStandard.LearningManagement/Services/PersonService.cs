@@ -4,9 +4,9 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
-using Library.Project_2.Models;
+using NetStandard.LearningMangement.Models;
 
-namespace Library.Project_2.Services
+namespace NetStandard.LearningMangement.Services
 {
     public class PersonService
     {

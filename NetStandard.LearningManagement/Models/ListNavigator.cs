@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Library.Project_2.Models
+namespace NetStandard.LearningMangement.Models
 {
     public class ListNavigator<T>
     {
