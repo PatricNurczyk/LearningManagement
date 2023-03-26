@@ -11,6 +11,7 @@ namespace NetStandard.LearningMangement.Services
     public class CourseService
     {
         private static CourseService instance;
+        public static string Codes {  get; private set; }
 
         public static CourseService Current
         {
@@ -29,6 +30,10 @@ namespace NetStandard.LearningMangement.Services
         private CourseService()
         {
             Courses = new List<Course>();
+            Course c = new Course();
+            c.Name = "TestCourse";
+            c.Code = "COP1234";
+            Courses.Add(c);
         }
 
         public void AddCourse(Course c)

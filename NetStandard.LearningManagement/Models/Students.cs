@@ -23,7 +23,7 @@ namespace NetStandard.LearningMangement.Models
             Grades = new List<Grades>();
         }
 
-        public override string ToString()
+       /* public override string ToString()
         {
             string s = $"ID: {ID}| Name: {Name}| Classification: {Classification}| GPA: {GPA} \n";
             s += "Courses Taking: \n";
@@ -32,6 +32,6 @@ namespace NetStandard.LearningMangement.Models
                 s += $"{CourseTaken[i].Code} - {CourseTaken[i].Name} - Grade: {Grades[i].Grade}\n";
             }
             return s;
-        }
+        } */
     }
 }

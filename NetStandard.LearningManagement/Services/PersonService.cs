@@ -10,9 +10,7 @@ namespace NetStandard.LearningMangement.Services
 {
     public class PersonService
     {
-        public List<Students> Students { get; set; }
-        public List<Teacher> Teachers { get; set; }
-        public List<TA> tAs {  get; set; }
+        public List<Person> Roster { get; set; }
 
         protected static PersonService instance;
 
@@ -28,26 +26,44 @@ namespace NetStandard.LearningMangement.Services
             }
         }
 
-        public PersonService()
+        private PersonService()
         {
-            Students= new List<Students>();
-            Teachers = new List<Teacher>();
-            tAs= new List<TA>();
+            Roster = new List<Person>();
+            Students s = new Students();
+            s.Name = "Billy Tester";
+            s.Classification = "Freshmen";
+            Roster.Add(s);
+            Teacher t = new Teacher();
+            t.Name = "Teacher Tester";
+            t.Classification = "Professor";
+            Roster.Add(t);
+
         }
 
-        public void add(Students s)
+        public char PersonType(int ID)
         {
-            Students.Add(s);
-        }
-        public void add(Teacher t)
-        {
-            Teachers.Add(t);
-        }
+            if (ID == 0)
+            {
+                //Admin
+                return 'a';
+            }
+            else
+            foreach(Person person in Roster)
+            {
+                if (person.ID == ID)
+                {
+                    if(person.GetType() == typeof(Teacher) || person.GetType() == typeof(TA))
+                    {
+                        return 't';
+                    }
+                    else if(person.GetType() == typeof(Students))
+                    {
+                        return 's';
+                    }
 
-        public void add(TA t)
-        {
-            tAs.Add(t);
+                }
+            }
+            return 's';
         }
-
     }
 }

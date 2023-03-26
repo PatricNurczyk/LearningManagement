@@ -29,7 +29,7 @@ namespace NetStandard.LearningMangement.Models
 
         public override string ToString()
         {
-            return $"Name: {name}| Class: {classification}";
+            return $"{ID} - {Name} - {Classification}";
         }
     }
 }

@@ -76,58 +76,59 @@ namespace NetStandard.LearningMangement.Models
         
         public override string ToString()
         {
-            string s = $"Course Code: {Code}| Course Name: {Name}| Description: {Description}| CreditHours: {creditHours} \n";
-            s += "Teachers:\n";
-            s += "-------------------------------------------------------------\n";
-            foreach(Teacher t in Teachers)
-            {
-                s += $"    {t.Name} - Role: Teacher\n";
-            }
-            s += "-------------------------------------------------------------\n";
-            s += "TAs: \n";
-            s += "-------------------------------------------------------------\n";
-            foreach (TA t in TeacherAssist)
-            {
-                s += $"    {t.Name} - Role: TA\n";
-            }
-            s += "-------------------------------------------------------------\n";
-            s += "Roster: \n";
-            foreach (Students t in Roster)
-            {
-                int index = 0;
-                for (int i = 0; i < t.CourseTaken.Count; i++)
-                {
-                    if (Code == t.CourseTaken[i].Code)
-                    {
-                        index = i; 
-                        break;
-                    }
-                }
-                s += $"    {t.Name} - Class: {t.Classification} - Grade: {t.Grades[index].Grade}\n";
-            }
-            s += "-------------------------------------------------------------\n";
-            s += "Annoucements: \n";
-            s += "-------------------------------------------------------------\n";
-            foreach (Annoucement a in Annoucements)
-            {
-                s += a.ToString() + "\n";
-            }
-            s += "-------------------------------------------------------------\n";
-            s += "Modules: \n";
-            s += "-------------------------------------------------------------\n";
-            foreach (Module m in modules)
-            {
-                s += m.ToString() + "\n";
-            }
-            s += "-------------------------------------------------------------\n";
-            s += "Assignments:\n";
-            s += "-------------------------------------------------------------\n";
-            foreach (AssignmentGroup a in assignments)
-            {
-                s += a.ToString() + "\n";
-            }
-            s += "-------------------------------------------------------------\n";
-            return s;
+            /* string s = $"Course Code: {Code}| Course Name: {Name}| Description: {Description}| CreditHours: {creditHours} \n";
+             s += "Teachers:\n";
+             s += "-------------------------------------------------------------\n";
+             foreach(Teacher t in Teachers)
+             {
+                 s += $"    {t.Name} - Role: Teacher\n";
+             }
+             s += "-------------------------------------------------------------\n";
+             s += "TAs: \n";
+             s += "-------------------------------------------------------------\n";
+             foreach (TA t in TeacherAssist)
+             {
+                 s += $"    {t.Name} - Role: TA\n";
+             }
+             s += "-------------------------------------------------------------\n";
+             s += "Roster: \n";
+             foreach (Students t in Roster)
+             {
+                 int index = 0;
+                 for (int i = 0; i < t.CourseTaken.Count; i++)
+                 {
+                     if (Code == t.CourseTaken[i].Code)
+                     {
+                         index = i; 
+                         break;
+                     }
+                 }
+                 s += $"    {t.Name} - Class: {t.Classification} - Grade: {t.Grades[index].Grade}\n";
+             }
+             s += "-------------------------------------------------------------\n";
+             s += "Annoucements: \n";
+             s += "-------------------------------------------------------------\n";
+             foreach (Annoucement a in Annoucements)
+             {
+                 s += a.ToString() + "\n";
+             }
+             s += "-------------------------------------------------------------\n";
+             s += "Modules: \n";
+             s += "-------------------------------------------------------------\n";
+             foreach (Module m in modules)
+             {
+                 s += m.ToString() + "\n";
+             }
+             s += "-------------------------------------------------------------\n";
+             s += "Assignments:\n";
+             s += "-------------------------------------------------------------\n";
+             foreach (AssignmentGroup a in assignments)
+             {
+                 s += a.ToString() + "\n";
+             }
+             s += "-------------------------------------------------------------\n"; */
+
+            return $"{Code} - {Name}";
         }
     }
 }
