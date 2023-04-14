@@ -13,7 +13,7 @@ namespace NetStandard.LearningMangement.Models
             this.ID = ++lastID;
             Name= string.Empty;
             Classification = "Teacher";
-            CourseTaken = new List<Course>();
+            CourseTaking = new List<Course>();
         }
     }
 }

@@ -22,7 +22,7 @@ namespace NetStandard.LearningMangement.Models
 
         public override string ToString()
         {
-            string s = $"{Name} - {Description}\n";
+            /*string s = $"{Name} - {Description}\n";
             for(int i = 0; i < ContentItems.Count; ++i)
             {
                 if (ContentItems[i].GetType() == typeof(PageItem))
@@ -43,8 +43,8 @@ namespace NetStandard.LearningMangement.Models
                     s += $"{a.Name} - {a.Description} - Assignment\n";
                     s += a.assignmentItem.ToString() + "\n";
                 }
-            }
-            return s;
+            } */
+            return Name;
         }
     }
 }

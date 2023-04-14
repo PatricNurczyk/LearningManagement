@@ -27,10 +27,6 @@ namespace NetStandard.LearningMangement.Models
         public override string ToString()
         {
             string s = $"{Name} - {Percentage * 100}%\n";
-            foreach (Assignment item in Assign) 
-            {
-                s += "    " + item.ToString() + "\n";
-            }
             return s;
         }
     }

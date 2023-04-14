@@ -18,5 +18,13 @@ namespace NetStandard.LearningMangement.Models
             s += assignmentItem.ToString();
             return s;
         }
+
+        public AssignmentItem()
+        {
+            assignmentItem = new Assignment();
+            Name = string.Empty;
+            Description= string.Empty;
+            Path= string.Empty;
+        }
     }
 }

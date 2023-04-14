@@ -20,7 +20,6 @@ namespace NetStandard.LearningMangement.Services
                 if (instance == null)
                 {
                     instance = new CourseService();
-
                 }
                 return instance;
             }
@@ -29,16 +28,40 @@ namespace NetStandard.LearningMangement.Services
 
         private CourseService()
         {
+            Codes = string.Empty;
             Courses = new List<Course>();
             Course c = new Course();
             c.Name = "TestCourse";
             c.Code = "COP1234";
+            c.Description = "This is a Description of a Course";
+            c.Annoucements.Add(new Annoucement("Welcome to the Course"));
+            Module m = new Module();
+            m.Name = "Module 0: Welcome";
+            m.Description = "This is the Welcome Module";
+            PageItem page = new PageItem();
+            page.Name = "Welcome";
+            page.HTMLBody = "<body>WELCOME<body>";
+            m.ContentItems.Add(page);
+            c.Modules.Add(m);
             Courses.Add(c);
         }
 
         public void AddCourse(Course c)
         {
+            Codes += c.Code;
             Courses.Add(c);
+        }
+
+        public void AddAssignment(Course c, Assignment a, string selectedAssignment)
+        {
+            foreach(AssignmentGroup assign in c.Assignments)
+            {
+                if (assign.Name == selectedAssignment)
+                {
+                    assign.totalPoints += a.TotalAvailablePoints;
+                    assign.Assign.Add(a);
+                }
+            }
         }
 
     }

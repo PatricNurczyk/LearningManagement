@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Security.AccessControl;
 using System.Text;
@@ -25,11 +26,20 @@ namespace NetStandard.LearningMangement.Models
             set { this.classification = value ?? "freshman"; }
         }
 
-        public List<Course> CourseTaken { get; set; }
+        public List<Course> PastCourse { get; set; }
+        public List<Course> CourseTaking { get; set; }
 
         public override string ToString()
         {
             return $"{ID} - {Name} - {Classification}";
+        }
+
+        public Person()
+        {
+            Name = string.Empty ;
+            Classification = string.Empty ;
+            PastCourse= new List<Course>() ;
+            CourseTaking = new List<Course>() ;
         }
     }
 }

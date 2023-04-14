@@ -42,7 +42,7 @@ namespace NetStandard.LearningMangement.Models
 
         public override string ToString()
         {
-            return $"- Name: {Name}| Description: {Description}| Points: {TotalAvailablePoints}| DueDate: {DueDate}";
+            return $"Name: {Name}| Description: {Description}| Points: {TotalAvailablePoints}| DueDate: {DueDate}";
         }
     }
 }

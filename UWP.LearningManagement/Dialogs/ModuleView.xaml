@@ -1,0 +1,24 @@
+﻿<ContentDialog FullSizeDesired="True"
+    x:Class="UWP.LearningManagement.Dialogs.ModuleView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWP.LearningManagement.Dialogs"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="{Binding ModuleDisplay.Name}"
+    SecondaryButtonText="Return"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="57*" />
+            <RowDefinition Height="551*" />
+            <RowDefinition Height="48*" />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="{Binding ModuleDisplay.Description}" FontSize="20" />
+        <ListBox Grid.Row="1" ItemsSource="{Binding ModuleDisplay.ContentItems}"  SelectedItem="{Binding SelectedItem, Mode=TwoWay}"/>
+        <Button Grid.Row="2" Content="Select Content" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,5"/>
+    </Grid>
+</ContentDialog>

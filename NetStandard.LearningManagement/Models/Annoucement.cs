@@ -11,14 +11,20 @@ namespace NetStandard.LearningMangement.Models
         public string Heading { get; set; }
         public string Content { get; set; }
 
+        public Annoucement(string s)
+        {
+            Heading = s;
+            Content = s;
+        }
 
+        public Annoucement() 
+        {
+            Heading = string.Empty;
+            Content = string.Empty;
+        }
         public override string ToString()
         {
-            string s = $"{Heading}\n";
-            s += "-------------\n";
-            s += Content;
-            return s;
-                       
+            return Heading;             
         }
     }
 }

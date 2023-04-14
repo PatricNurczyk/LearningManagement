@@ -1,0 +1,47 @@
+﻿<ContentDialog
+    x:Class="UWP.LearningManagement.Dialogs.AddContent"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWP.LearningManagement.Dialogs"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="Add/Edit Module"
+    PrimaryButtonText="Submit"
+    SecondaryButtonText="Cancel"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBox Grid.Row="0" Header="Name" Text="{Binding Name,Mode=TwoWay}"/>
+        <TextBox Grid.Row="1" Header="Description" Text="{Binding Description, Mode=TwoWay}" />
+        <TextBox Grid.Row="2" Header="File Path" Text="{Binding Path, Mode=TwoWay}" Visibility="{Binding File,UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox Grid.Row="3" Header="HTML Body" Text="{Binding HTMLBody, Mode=TwoWay}" Visibility="{Binding Page,UpdateSourceTrigger=PropertyChanged}" />
+        <Grid Grid.Row="4" Visibility="{Binding Assign, UpdateSourceTrigger=PropertyChanged}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="0" Header="Assignment Name" Text="{Binding assignment.Name, Mode=TwoWay}"/>
+            <TextBox Grid.Column="1" Header="Assignment Description" Text="{Binding assignment.Description, Mode=TwoWay}"/>
+        </Grid>
+        <Grid Grid.Row="5" Visibility="{Binding Assign,UpdateSourceTrigger=PropertyChanged}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="0" Header="Total Points" Text="{Binding assignment.TotalAvailablePoints, Mode=TwoWay}"/>
+            <TextBox Grid.Column="1" Header="Due Date" Text="{Binding assignment.DueDate, Mode=TwoWay}" />
+        </Grid>
+        <TextBox Grid.Row="6" Header="Assignment Group" Text="{Binding selectedAssignment, Mode=TwoWay}" Visibility="{Binding Assign,UpdateSourceTrigger=PropertyChanged}" />
+    </Grid>
+</ContentDialog>

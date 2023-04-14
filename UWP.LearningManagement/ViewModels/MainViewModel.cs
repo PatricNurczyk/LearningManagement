@@ -9,12 +9,35 @@ using NetStandard.LearningMangement.Models;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Windows.UI.Xaml;
+using NetStandard.LearningManagement.Models;
+using Windows.Networking.Proximity;
 
 namespace UWP.LearningManagement.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged
     {
         public static int ID = -1;
+
+        public static bool pastCourse = false;
+
+        private SemesterDate date { get; set; }
+
+        public bool past { get; set; }
+
+        public SemesterDate Date
+        {
+            get
+            {
+                return date;
+            }
+            set
+            {
+                date = value;
+
+                NotifyPropertyChanged("Date");
+
+            }
+        }
         public CourseService courseService { get; set; }
         public PersonService personService { get; set; }
 
@@ -84,6 +107,7 @@ namespace UWP.LearningManagement.ViewModels
             personService = PersonService.Current;
             DisplayCourses = new List<Course>();
             DisplayPersons= new List<Person>();
+            Date = new SemesterDate(1, 2023);
         }
 
         public void LoadMainView()
@@ -102,7 +126,14 @@ namespace UWP.LearningManagement.ViewModels
                     {
                         if (person.GetType() == typeof(Students))
                         {
-                            DisplayCourses = (person as Students).CourseTaken;
+                            if (past)
+                            {
+                                DisplayCourses = (person as Students).PastCourse.Concat((person as Students).CourseTaking).ToList();
+                            }
+                            else
+                            {
+                                DisplayCourses = (person as Students).CourseTaking;
+                            }
                             Student = Visibility.Visible;
                         }
                         else if (person.GetType() == typeof(Teacher) || person.GetType() == typeof(TA))

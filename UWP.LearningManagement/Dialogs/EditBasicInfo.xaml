@@ -1,0 +1,31 @@
+﻿<ContentDialog
+    x:Class="UWP.LearningManagement.Dialogs.EditBasicInfo"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWP.LearningManagement.Dialogs"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="Change Basic Info"
+    PrimaryButtonText="Save"
+    SecondaryButtonText="Cancel"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBox Grid.Row="0" Header="Course Code" Text="{Binding Code, Mode=TwoWay}"></TextBox>
+        <TextBox Grid.Row="2" Header="Description" Text="{Binding Desc, Mode=TwoWay}"></TextBox>
+        <TextBox Grid.Row="1" Header="Name" Text="{Binding cName, Mode=TwoWay}"></TextBox>
+        <TextBox Grid.Row="3" Header="Credit Hours" Text="{Binding credits, Mode=TwoWay}"></TextBox>
+        <TextBox Grid.Row="4" Header="Room" Text="{Binding room, Mode=TwoWay}"></TextBox>
+        <TextBox Grid.Row="5" Header="Semester" Text="{Binding Semester, Mode=TwoWay}"></TextBox>
+    </Grid>
+</ContentDialog>

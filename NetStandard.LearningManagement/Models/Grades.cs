@@ -12,10 +12,14 @@ namespace NetStandard.LearningMangement.Models
         public Dictionary<AssignmentGroup, float> Points { get; set; }
         public float Grade { get; set; }
 
-        public Grades() 
+        public Grades(Course c) 
         {
-            creditHours= 0;
+            creditHours = c.creditHours;
             Points = new Dictionary<AssignmentGroup, float>();
+            foreach(AssignmentGroup group in c.Assignments)
+            {
+                Points.Add(group, 0);
+            }
             Grade = 0;
         }
     }

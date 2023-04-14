@@ -11,16 +11,17 @@ namespace NetStandard.LearningMangement.Models
     {
         public float GPA { get; set; }
 
-        public List<Grades> Grades { get; set; }
+        public Dictionary<string, Grades> Grades { get; set; }
 
         public Students() 
         {
             this.ID = ++lastID;
             Name = string.Empty;
             Classification= string.Empty;
-            CourseTaken = new List<Course>();
+            CourseTaking = new List<Course>();
             GPA=0;
-            Grades = new List<Grades>();
+            Grades = new Dictionary<string, Grades>();
+            
         }
 
        /* public override string ToString()

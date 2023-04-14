@@ -13,7 +13,7 @@ namespace NetStandard.LearningMangement.Models
         private string code;
         private string name;
         private string description;
-        private List<Students> roster;
+        private List<Person> roster;
         private List<AssignmentGroup> assignments;
         private List<Module> modules;
 
@@ -31,13 +31,11 @@ namespace NetStandard.LearningMangement.Models
         {
             get { return description; } set { description = value ?? "N/A"; }
         }
-
-        public int CreditHours { get; set; }
         //Roster
-        public List<Students> Roster
+        public List<Person> Roster
         {
             get { return roster; }
-            set { roster = value ?? new List<Students>(); }
+            set { roster = value ?? new List<Person>(); }
         }
         //Assignments
         public List<AssignmentGroup> Assignments
@@ -60,13 +58,18 @@ namespace NetStandard.LearningMangement.Models
 
         public List<Annoucement> Annoucements { get; set; }
 
+        public string Room { get; set; }
+        public string Semester { get; set; }
+
         public Course()
         {
             code = string.Empty;
             name = string.Empty;
             description = string.Empty;
             creditHours = 3;
-            roster = new List<Students>();
+            Semester = string.Empty;
+            Room = string.Empty;
+            roster = new List<Person>();
             Teachers = new List<Teacher>();
             TeacherAssist = new List<TA>();
             assignments = new List<AssignmentGroup>();
@@ -128,7 +131,7 @@ namespace NetStandard.LearningMangement.Models
              }
              s += "-------------------------------------------------------------\n"; */
 
-            return $"{Code} - {Name}";
+            return $"{Code} - {Name} - {creditHours}";
         }
     }
 }
